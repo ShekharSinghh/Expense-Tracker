@@ -1,0 +1,37 @@
+/* Styles for container-scroller */
+.container-scroller {
+    height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .navbar {
+    background-color: #ffffff; 
+  }
+  
+  .sidebar {
+    background-color: #f8f9fa; 
+    width: 250px; 
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-y: auto; 
+  }
+  
+ 
+  .main-panel {
+    margin-left: 250px; /* Adjust to match sidebar width */
+    padding: 20px;
+  }
+  
+  .content-wrapper {
+    min-height: calc(100vh - 60px); /* Adjust for the height of the navbar */
+  }
+  
+  .footer {
+    background-color: #343a40; 
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+  }
+  
