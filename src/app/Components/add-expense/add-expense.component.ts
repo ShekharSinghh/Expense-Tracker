@@ -20,7 +20,7 @@ constructor(
 ngOnInit(): void {
     this.categoryForm = this.formBuilder.group({
      name: ['sfsd'],
-     urlHandle: ['']
+     amount: ['']
     })
 }
 

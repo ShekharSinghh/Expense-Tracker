@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class ApiService {
   
   ) { }
 
-  addExpense(data: any){
-    return this.http.post<any>( 'https://localhost:7121/api/Categories', data);
+  addExpense(data: any):  Observable<any>{
+    return this.http.post(`${environment.baseURl}Expense`, data);
   }
 }
