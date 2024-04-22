@@ -5,9 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './Forms/login/login.component'; 
 import { RegisterComponent } from './Forms/register/register.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddExpenseComponent } from './Components/add-expense/add-expense.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
+import { ExpenseListComponent } from './Components/expense-list/expense-list.component';
+import{HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { DashboardComponent } from './Components/dashboard/dashboard.component';
     RegisterComponent,
     AddExpenseComponent,
     DashboardComponent,
+    ExpenseListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
