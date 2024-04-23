@@ -4,4 +4,23 @@
 <div class="d-flex justify-content-end mt-3">
 <a [routerLink]="['/add-expense']" class="btn btn-primary">Add Category</a>
 </div>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Amount</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data">
+        <td>{{ item.name }}</td>
+        <td>{{ item.amount }}</td>
+        <td (click)="deleteExpense(item.id)"><i class="fa-solid fa-trash"></i></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 </div>

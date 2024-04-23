@@ -8,8 +8,7 @@ import { ApiService } from 'src/app/Services/api.service';
   styleUrls: ['./add-expense.component.scss']
 })
 export class AddExpenseComponent implements OnInit{
-
-  data:any
+data:any
 categoryForm!:FormGroup
 
 constructor(
@@ -19,19 +18,18 @@ constructor(
 
 ngOnInit(): void {
     this.categoryForm = this.formBuilder.group({
-     name: ['sfsd'],
+     name: [''],
      amount: ['']
-    })
+    });
 }
 
 addExpense(){
 this.apiService.addExpense(this.categoryForm.value).subscribe((res)=>{
 console.log('res',res);
-
 },
 error =>{
   console.log(error);
-  
+
 });
 }
 

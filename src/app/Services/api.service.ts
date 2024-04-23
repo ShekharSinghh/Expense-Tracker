@@ -16,4 +16,12 @@ export class ApiService {
   addExpense(data: any):  Observable<any>{
     return this.http.post(`${environment.baseURl}Expense`, data);
   }
+
+  getExpense(data: any):  Observable<any>{
+    return this.http.get(`${environment.baseURl}Expense`, data);
+  }
+
+  deleteExpense(id:any):  Observable<any>{
+    return this.http.delete(`${environment.baseURl}Expense/${id}` )
+  }
 }

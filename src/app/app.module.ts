@@ -10,6 +10,7 @@ import { AddExpenseComponent } from './Components/add-expense/add-expense.compon
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ExpenseListComponent } from './Components/expense-list/expense-list.component';
 import{HttpClientModule} from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import{HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
