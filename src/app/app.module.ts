@@ -10,7 +10,9 @@ import { AddExpenseComponent } from './Components/add-expense/add-expense.compon
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { ExpenseListComponent } from './Components/expense-list/expense-list.component';
 import{HttpClientModule} from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalComponent } from './modal/modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AddExpenseComponent,
     DashboardComponent,
     ExpenseListComponent,
+    ModalComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,6 +31,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatDialogModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

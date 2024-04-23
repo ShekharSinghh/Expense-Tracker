@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Services/api.service';
+import { ModalComponent } from 'src/app/modal/modal.component';
+import {MatDialog, MatDialogRef,MatDialogModule} from '@angular/material/dialog';
 
 
 @Component({
@@ -8,10 +10,12 @@ import { ApiService } from 'src/app/Services/api.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit{
-data:any[]=[];
+  data:any[]=[];
   expenses: any;
+  id:any
   constructor(
     private apiService: ApiService,
+    public dialog: MatDialog
   ) {}
 
   
@@ -31,4 +35,25 @@ data:any[]=[];
   ngOnInit(): void {
      this.getExpense(this.data) 
   }
+
+  
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, id:number): void {
+    const dialogRef = this.dialog.open(ModalComponent, {
+      width: '250px',
+      data: { modalText: "Are you sure you want to delete" },
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+  
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Call deleteExpense function when "Ok" button is clicked
+        this.deleteExpense(id);
+      } else {
+        // Handle action when "Cancel" or modal is closed without clicking "Ok"
+      }
+    });
+  
+  }
 }
+

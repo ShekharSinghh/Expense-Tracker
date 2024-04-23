@@ -17,10 +17,11 @@
       <tr *ngFor="let item of data">
         <td>{{ item.name }}</td>
         <td>{{ item.amount }}</td>
-        <td (click)="deleteExpense(item.id)"><i class="fa-solid fa-trash"></i></td>
+        <td><button mat-raised-button (click)="openDialog('500ms', '500ms', item.id)"><i class="fa-solid fa-trash"></i></button></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 </div>
+
