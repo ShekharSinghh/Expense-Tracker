@@ -24,4 +24,8 @@ export class ApiService {
   deleteExpense(id:any):  Observable<any>{
     return this.http.delete(`${environment.baseURl}Expense/${id}` )
   }
+
+  updateExpense(id:any):  Observable<any>{
+    return this.http.put(`${environment.baseURl}Expense/${id}`, id )
+  }
 }
