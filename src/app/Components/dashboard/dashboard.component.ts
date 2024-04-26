@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/Services/api.service';
 import { ModalComponent } from 'src/app/modal/modal.component';
 import { MatDialog, MatDialogRef, MatDialogModule } from '@angular/material/dialog';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +15,8 @@ export class DashboardComponent implements OnInit {
   id: any
   constructor(
     private apiService: ApiService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -29,10 +30,10 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  deleteExpense(id: number) {
+  deleteExpense(id: any) {
     this.apiService.deleteExpense(id).subscribe((res) => {
     })
-    this.updateExpense(id);
+    this.getExpense(this.data)
   }
 
   updateExpense(id: number) {
@@ -40,8 +41,6 @@ export class DashboardComponent implements OnInit {
       console.log('Updated Data', res);
     })
   }
-
-
 
   openDialog(enterAnimationDuration: string, exitAnimationDuration: string, id: number): void {
     const dialogRef = this.dialog.open(ModalComponent, {
@@ -53,13 +52,16 @@ export class DashboardComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        // Call deleteExpense function when "Ok" button is clicked
         this.deleteExpense(id);
       } else {
-        // Handle action when "Cancel" or modal is closed without clicking "Ok"
       }
     });
-
   }
+
+  editExpense(id: any) {
+    console.log(id);
+    this.router.navigate(['add-expense/', id])
+  }
+
 }
 

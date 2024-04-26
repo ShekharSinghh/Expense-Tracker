@@ -14,18 +14,22 @@ export class ApiService {
   ) { }
 
   addExpense(data: any):  Observable<any>{
-    return this.http.post(`${environment.baseURl}Expense`, data);
+    return this.http.post(`${environment.baseURl}Expense/AddExpense`, data);
   }
 
   getExpense(data: any):  Observable<any>{
-    return this.http.get(`${environment.baseURl}Expense`, data);
+    return this.http.get(`${environment.baseURl}Expense/GetExpenses`, data);
   }
 
-  deleteExpense(id:any):  Observable<any>{
-    return this.http.delete(`${environment.baseURl}Expense/${id}` )
-  }
+  // getExpensebyId(id: any):  Observable<any>{
+  //   return this.http.get(`${environment.baseURl}Expense/GetExpenses?id=${id}`);
+  // }
 
+  deleteExpense(id: number): Observable<any>{
+    return this.http.delete(`${environment.baseURl}Expense/DeleteExpense?id=${id}`);
+  }
+  
   updateExpense(id:any):  Observable<any>{
-    return this.http.put(`${environment.baseURl}Expense/${id}`, id )
+    return this.http.put(`${environment.baseURl}Expense/UpdateExpense?id=${id}`, id )
   }
 }
